@@ -554,3 +554,7 @@ class Coin {
             // 中央に穴（五円玉風）
             ctx.fillStyle = '#FFFFFF';
     <response clipped><NOTE>To save on context only part of this file has been shown to you. You should retry this tool after you have searched inside the file with `grep -n` in order to find the line numbers of what you are looking for.</NOTE>
+            // ゲームの初期化
+document.addEventListener('DOMContentLoaded', () => {
+    const game = new JapanRunner();
+});
