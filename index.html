@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ジャパンランナー - 日本文化を駆け抜けるエンドレスランナーゲーム</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="game-start-screen">
+            <h1>ジャパンランナー</h1>
+            <p>日本文化を駆け抜けるエンドレスランナーゲーム</p>
+            <button id="start-button">ゲームスタート</button>
+            <div class="instructions">
+                <h2>操作方法</h2>
+                <p>← → : 左右移動</p>
+                <p>↑ : ジャンプ</p>
+                <p>↓ : スライディング</p>
+            </div>
+        </div>
+        
+        <div class="game-play-screen">
+            <canvas id="game-canvas"></canvas>
+            <div class="game-stats">
+                <div class="score">スコア: <span id="score">0</span></div>
+                <div class="coins">コイン: <span id="coins">0</span></div>
+                <div class="distance">距離: <span id="distance">0</span>m</div>
+            </div>
+        </div>
+        
+        <div class="game-over-screen">
+            <h2>ゲームオーバー</h2>
+            <div class="final-score">最終スコア: <span id="final-score">0</span></div>
+            <div class="high-score">ハイスコア: <span id="high-score">0</span></div>
+            <button id="restart-button">もう一度プレイ</button>
+        </div>
+    </div>
+    
+    <div class="loading-screen">
+        <div class="loading-text">読み込み中...</div>
+        <div class="progress-bar">
+            <div class="progress"></div>
+        </div>
+    </div>
+
+    <!-- ゲームスクリプト -->
+    <script src="js/game.js"></script>
+    <script type="module" src="js/japanese-elements.js"></script>
+    <script src="js/placeholder-images.js"></script>
+    <script src="js/game-integration.js"></script>
+    <script src="js/ui-controls.js"></script>
+</body>
+</html>

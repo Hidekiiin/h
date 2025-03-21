@@ -1,0 +1,242 @@
+/* ジャパンランナー - メインスタイルシート */
+
+/* 全体のリセットとベーススタイル */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Hiragino Kaku Gothic Pro', 'メイリオ', sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to bottom, #87CEEB, #E0F7FA);
+}
+
+.game-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    height: 600px;
+    margin: 0 auto;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+/* ゲームスタート画面 */
+.game-start-screen {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../assets/images/start-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: 10;
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.game-start-screen h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: #FF4081;
+    -webkit-text-stroke: 1px #000;
+}
+
+.game-start-screen p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+#start-button {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    background-color: #FF4081;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#start-button:hover {
+    background-color: #E91E63;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.instructions {
+    margin-top: 30px;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 15px;
+    border-radius: 10px;
+    max-width: 300px;
+}
+
+.instructions h2 {
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
+
+.instructions p {
+    margin: 5px 0;
+    font-size: 1em;
+}
+
+/* ゲームプレイ画面 */
+.game-play-screen {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+#game-canvas {
+    width: 100%;
+    height: 100%;
+    background-color: #87CEEB;
+}
+
+.game-stats {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1.2em;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* ゲームオーバー画面 */
+.game-over-screen {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 20;
+    color: white;
+    text-align: center;
+}
+
+.game-over-screen h2 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: #FF4081;
+}
+
+.final-score, .high-score {
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+#restart-button {
+    margin-top: 30px;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    background-color: #FF4081;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#restart-button:hover {
+    background-color: #E91E63;
+    transform: translateY(-3px);
+}
+
+/* ローディング画面 */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.loading-text {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.progress-bar {
+    width: 300px;
+    height: 20px;
+    background-color: #eee;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress {
+    width: 0%;
+    height: 100%;
+    background-color: #FF4081;
+    transition: width 0.3s ease;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    .game-container {
+        width: 100%;
+        height: 100vh;
+        max-width: none;
+        border-radius: 0;
+    }
+    
+    .game-start-screen h1 {
+        font-size: 2.5em;
+    }
+    
+    .instructions {
+        max-width: 90%;
+    }
+}
+
+/* アニメーション */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.fadeIn {
+    animation: fadeIn 1s ease-in-out;
+}
+
+.bounce {
+    animation: bounce 2s infinite;
+}
